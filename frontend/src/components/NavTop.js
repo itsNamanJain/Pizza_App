@@ -3,7 +3,7 @@ import { Navbar, Nav, Container,NavDropdown } from "react-bootstrap";
 import { useDispatch,useSelector } from "react-redux";
 import { BiLogIn } from "react-icons/bi";
 import { LinkContainer } from "react-router-bootstrap";
-import {AiOutlineShoppingCart,AiOutlineUser} from 'react-icons/ai';
+import {AiOutlineShoppingCart} from 'react-icons/ai';
 import { logoutUser } from "../actions/userAction";
 import {FaUserPlus} from 'react-icons/fa'
 const NavTop = () => {
@@ -28,9 +28,10 @@ const NavTop = () => {
                 <NavDropdown
           id="nav-dropdown-dark-example"
           title={currentUser.name}
-          menuVariant="dark"
-        >
-          <NavDropdown.Item href="/order">My Orders</NavDropdown.Item>
+        ><LinkContainer to="/orders" activeClassName>
+                <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+              </LinkContainer>
+          
           <NavDropdown.Item href="/logout" onClick={()=>{
             dispatch(logoutUser());
       

@@ -19,6 +19,8 @@ app.use(morgan('dev'));
 //routes
 app.use("/api/pizzas",require('./routes/routes'));
 app.use("/api/users",require('./routes/userRoutes'));
+app.use("/api/orders",require('./routes/orderRoutes'));
+
 app.get('/',(req,res)=>{
     res.send("<h1>Hello Node Server</h1>")
 })

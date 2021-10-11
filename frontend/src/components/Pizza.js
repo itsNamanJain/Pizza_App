@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Card,Button,Row,Col,Modal} from 'react-bootstrap'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {BiRupee} from 'react-icons/bi'
-import {useDispatch,useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { cartAction } from '../actions/cartAction'
 
 const Pizza = ({pizza}) => {

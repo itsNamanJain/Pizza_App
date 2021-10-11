@@ -6,6 +6,7 @@ export const registerUser = (user)=>async(dispatch)=>{
     try {
         const res =await axios.post('/api/users/register',user);
         dispatch({type:'Register_User_Success'})
+        console.log(res)
     } catch (error) {
         
         dispatch({type:'Register_User_Fail',payload:error})
@@ -19,6 +20,7 @@ export const loginUser = (user)=>async(dispatch)=>{
         dispatch({type:'Login_User_Success',payload:res.data});
         localStorage.setItem("currentUser",JSON.stringify(res.data));
         window.location.href='/';
+       
     } catch (error) {
         dispatch({type:'Login_User_Fail',payload:error})
     }
@@ -27,7 +29,8 @@ export const loginUser = (user)=>async(dispatch)=>{
 export const logoutUser = ()=>async(dispatch)=>{
     
         localStorage.removeItem("currentUser");
-        dispatch({type:'Logout_User_Success'})
+        dispatch({type:'Logout_User_Success'});
+        
         window.location.href='/login';
         
 }

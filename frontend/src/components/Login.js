@@ -2,10 +2,16 @@ import React,{useState,useEffect} from 'react'
 import { Form,Container,Button } from 'react-bootstrap'
 import {useSelector,useDispatch}  from 'react-redux'
 import {loginUser} from '../actions/userAction'
+import Error from './Error'
+import Loader from './Loader'
+import Success from './Success'
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const loginState = useSelector((state)=>state.loginUserReducer)
+    const {error,success,loading} = loginState;
 
     const handleLogin =async ()=>{
      const user = {email,password};
@@ -19,6 +25,10 @@ const Login = () => {
  }, [])
 
     return (
+      <>
+      {loading && <Loader/>}
+      {success && <Success success="User Login Success"/>}
+        {error && <Error error="User Login error"/>}
         <Container className="mt-5">
             <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -41,6 +51,7 @@ const Login = () => {
   </Button>
 </Form>
         </Container>
+        </>
     )
 }
 

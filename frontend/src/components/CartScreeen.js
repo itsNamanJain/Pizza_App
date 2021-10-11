@@ -4,12 +4,11 @@ import {AiOutlineMinusCircle,AiOutlinePlusCircle,AiFillDelete} from 'react-icons
 import {Container,Row,Col} from 'react-bootstrap'
 import { useSelector ,useDispatch} from 'react-redux'
 import {cartAction,deleteAction} from '../actions/cartAction'
+import Checkout from './Checkout'
 const CartScreeen = () => {
     const cartState=  useSelector(state => state.cartReducer);
     const cartItems = cartState.cartItems; 
     const dispatch = useDispatch();
-    const t = (pre, cur) => pre =pre + cur;
-    console.log(cartItems);
     const subTotal = cartItems.reduce((x,items)=>x+items.price,0);
 
     return (
@@ -39,6 +38,7 @@ const CartScreeen = () => {
                     <h4>Payment Info</h4>
                     <h5>SubTotal :</h5>
                     <h5>Rs. {subTotal} /-</h5>
+                    <Checkout subTotal={subTotal}/>
                 </Col>
             </Row>
         </Container>

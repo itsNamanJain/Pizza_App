@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js",
-    "index":"nodemon index.js",
-    "front":"npm start --prefix  ../frontend",
-    "dev":"concurrently \npm run index\"  \" npm run frontend\"",
-    "data:import":"node seeder.js"
+    "start": "node index.js",
+    "index": "nodemon index.js",
+    "front": "npm start --prefix  ../frontend",
+    "dev": "concurrently \npm run index\"  \" npm run frontend\"",
+    "data:import": "node seeder.js"
   },
   "author": "Naman Jain",
   "license": "ISC",
@@ -19,6 +19,8 @@
     "express": "^4.17.1",
     "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "stripe": "^8.179.0",
+    "uuid": "^8.3.2"
   }
 }
