@@ -18,7 +18,7 @@ const HomeScreen = () => {
             {loading? (<Loader/>):error?(<Error>error</Error>):(
                 <Row>
                     {pizzas.map((pizza)=>(
-                        <Col md={4}>
+                        <Col md={4} key={pizza.name}>
                         <Pizza pizza={pizza}/>
                         </Col>
                     ))}

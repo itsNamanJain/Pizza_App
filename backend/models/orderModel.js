@@ -11,7 +11,7 @@ const orderSchema = mongoose.Schema({
     },
     userid:{
         type:String,
-        required:true
+        // required:true
     },
     orderItems:[],
     shippingAddress :{
@@ -21,7 +21,7 @@ const orderSchema = mongoose.Schema({
     
     orderAmount:{
         type:String,
-        required:true
+        // required:true
     },
     isDelivered:{
         type:Boolean,
@@ -30,7 +30,7 @@ const orderSchema = mongoose.Schema({
     transactionId:{
         type:String,
         // required:true    
-    }
+    },
 },{timestamps:true})
 
 module.exports = mongoose.model('Order',orderSchema);

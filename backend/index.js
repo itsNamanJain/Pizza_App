@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const ConnectDb = require("./config/config")
 const dotenv = require("dotenv");
-const colors = require('colors');
 
 //  config dotenv
 dotenv.config();

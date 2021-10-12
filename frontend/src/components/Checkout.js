@@ -16,9 +16,9 @@ const Checkout = ({subTotal}) => {
     }
     return (
         <>
-        { loading && <Loader/>}
-        { success && <Success success="Order Placed Successfully"/>}
-        { error && <Error error="Something went Wrong"/>}
+        { loading && (<Loader/>)}
+        { success &&( <Success success="Order Placed Successfully"/>)}
+        { error && (<Error error="Something went Wrong"/>)}
 
             <StripeCheckout
             amount={subTotal*100}

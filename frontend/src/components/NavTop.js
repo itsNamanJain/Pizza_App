@@ -27,9 +27,9 @@ const NavTop = () => {
                 <Nav.Link>
                 <NavDropdown
           id="nav-dropdown-dark-example"
-          title={currentUser.name}
-        ><LinkContainer to="/orders" activeClassName>
-                <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+          title={currentUser.name}>
+          <LinkContainer to="/orders" >
+                <NavDropdown.Item >My Orders</NavDropdown.Item>
               </LinkContainer>
           
           <NavDropdown.Item href="/logout" onClick={()=>{
@@ -42,12 +42,12 @@ const NavTop = () => {
               </>
               ):(
                 <>
-                <LinkContainer to="/login" activeClassName>
+                <LinkContainer to="/login">
                 <Nav.Link>
                   <BiLogIn /> Login
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/register" activeClassName>
+              <LinkContainer to="/register">
                 <Nav.Link>
                   <FaUserPlus /> Register
                 </Nav.Link>
@@ -56,7 +56,7 @@ const NavTop = () => {
               )
             }
               
-              <LinkContainer to="/cart" activeClassName>
+              <LinkContainer to="/cart">
                 <Nav.Link>
                 <AiOutlineShoppingCart/> Cart {cartState.cartItems.length}
                 </Nav.Link>

@@ -9,6 +9,8 @@ import CartScreeen from "./components/CartScreeen";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Orders from "./components/Orders";
+import AdminScreen from "./screens/AdminScreen";
+
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
       <Topbar/>
       <NavTop/>
       <Switch>
-      <Route exact path="/about"> <About/></Route>
+      <Route exact  path="/about"> <About/></Route>
+      <Route  path="/admin"> <AdminScreen/></Route>
       <Route exact path="/contact"> <Contact/></Route>
       <Route exact path="/cart"><CartScreeen/> </Route>
       <Route exact path="/login"><Login/> </Route>
