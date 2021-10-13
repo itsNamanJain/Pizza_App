@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import {Container,Table } from "react-bootstrap";
 import {useDispatch,useSelector} from 'react-redux'
 import {AiFillEdit,AiFillDelete} from 'react-icons/ai'
-import {getAllPizzas} from "../../actions/pizzaActions";
+import {deletePizza, getAllPizzas} from "../../actions/pizzaActions";
 import Error from '../Error';
 import Loader from '../Loader';
 import { Link } from 'react-router-dom';
@@ -32,7 +32,7 @@ const PizzaList = () => {
   <tbody>
     {
         pizzas && pizzas.map(pizza=>(
-            <tr>
+            <tr key={pizza.name}>
                 <td><img src={pizza.image} alt="pizza" style={{height:"90px",width:"90px"}}/></td>
                 <td>{pizza.name}</td>
                 <td>Small : {pizza.prices[0]['small']}<br/>
@@ -44,7 +44,7 @@ const PizzaList = () => {
                   <Link to={`/admin/editpizza/${pizza._id}`}>
                   <AiFillEdit style={{cursor:"pointer"}}/>
                   </Link>
-                &nbsp;<AiFillDelete/>{}</td>
+                &nbsp;<AiFillDelete style={{color:"red", cursor:"pointer"}} onClick={()=>{dispatch(deletePizza(pizza._id))}}/></td>
             </tr>
         ))
     }

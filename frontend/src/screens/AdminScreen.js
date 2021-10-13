@@ -18,7 +18,7 @@ const AdminScreen = () => {
        if(localStorage.getItem('currentUser')===null || !currentUser.isAdmin){
            window.location.href = "/";
        }
-    }, [])
+    }, [currentUser.isAdmin])
     return (
         <Container>
         <Router history={history}>

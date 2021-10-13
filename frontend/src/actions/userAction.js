@@ -1,4 +1,5 @@
 import axios from  'axios';
+import swal from 'sweetalert';
 
 
 export const registerUser = (user)=>async(dispatch)=>{
@@ -34,3 +35,26 @@ export const logoutUser = ()=>async(dispatch)=>{
         window.location.href='/login';
         
 }
+
+export const getAllusers = ()=> async(dispatch)=>{
+    dispatch({type:'Get_Users_Request'})
+    try {
+        const res =await axios.get('/api/users/getallusers');
+        dispatch({type:'Get_Users_Success',payload:res.data})
+    } catch (err) {
+        dispatch({type:'Get_Users_Fail',payload:err})
+        
+    }
+} 
+
+export const deleteUser = (userId)=> async(dispatch)=>{
+      
+    try {
+        await axios.post('/api/users/deleteuser',{userId});
+        swal("Good job!", "User Deleted SuccessFully", "success");
+        window.location.href="/admin/userlist";
+       
+    } catch (err) {
+        swal("Error in deleting user");
+    }
+}  

@@ -40,3 +40,24 @@ export const loginUserReducer = (state ={},action)=>{
         default: return state
     }
 }
+
+export const getAllUsersReducer = (state ={users:[]},action)=>{
+    switch(action.type){
+        case 'Get_Users_Request':
+            return{
+                ...state,
+                loading:true
+            }
+        case 'Get_Users_Success':
+            return{
+                users:action.payload,
+                loading:false
+            }
+        case 'Get_Users_Fail':
+           return{
+               error: action.payload,
+               loading:false
+           }
+        default: return state
+    }
+}

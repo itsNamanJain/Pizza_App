@@ -38,3 +38,24 @@ export const getOrderReducer = (state ={orders:[]},action)=>{
         default: return state
     }
 }
+
+
+export const allOrderReducer = (state ={orders:[]},action)=>{
+    switch(action.type){
+        case 'All_Order_Request':
+            return{
+                loading:true
+            }
+        case 'All_Order_Success':
+            return{
+                loading:false,
+                orders:action.payload
+            }
+        case 'All_Order_Fail':
+           return{
+               error: action.payload,
+               loading:false
+           }
+        default: return state
+    }
+}

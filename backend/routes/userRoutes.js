@@ -44,4 +44,26 @@ router.post('/login',async(req, res)=>{
     }
 })
 
+router.get('/getallusers',async(req,res)=>{
+    try {
+        const users = await User.find({});
+        res.status(200).send(users);   
+    } catch (error) {
+        res.status(400).json({
+            message:error
+        });
+    }
+})
+
+router.post('/deleteuser',async(req, res)=>{
+    const userId = req.body.userId
+    try {
+        await User.findOneAndDelete({_id:userId})
+        res.status(200).send("User Delete Success")
+        
+    } catch (error) {
+        res.json({message:error});
+    }
+})
+
 module.exports = router;

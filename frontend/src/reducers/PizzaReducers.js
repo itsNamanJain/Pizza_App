@@ -60,3 +60,24 @@ export const getPizzaByIdReducer = (state ={},action)=>{
         default: return state
     }
 }
+
+export const updatePizzaByIdReducer = (state ={},action)=>{
+    switch(action.type){
+        case 'Update_PizzaById_Request':
+            return{
+                ...state,
+                updateloading:true
+            }
+        case 'Update_PizzaById_Success':
+            return{
+                updatesuccess:true,
+                updateloading:false
+            }
+        case 'Update_PizzaById_Fail':
+           return{
+               updateerror: action.payload,
+               updateloading:false
+           }
+        default: return state
+    }
+}

@@ -39,6 +39,10 @@ dispatch(AddNewPizza(pizza));
     <Form.Label>Name</Form.Label>
     <Form.Control type="text" value={name} onChange={(e)=>setname(e.target.value)} placeholder="Enter Pizza Name" />
   </Form.Group>
+  <Form.Group className="mb-3" controlId="description">
+    <Form.Label>Description</Form.Label>
+    <Form.Control type="text" value={description} onChange={(e)=>setdescription(e.target.value)} placeholder="Enter description about Pizza" />
+  </Form.Group>
   <Row>
   <Form.Group as={Col} className="mb-3" controlId="sprice">
     <Form.Label>Small Price</Form.Label>
@@ -51,17 +55,13 @@ dispatch(AddNewPizza(pizza));
     <Form.Control type="text" value={lPrice} onChange={(e)=>setlPrice(e.target.value)} placeholder=" Large Pizza Price" />
   </Form.Group>    
     </Row>
-    <Form.Group className="mb-3" controlId="image">
-    <Form.Label>Image</Form.Label>
-    <Form.Control type="text" value={image} onChange={(e)=>setimage(e.target.value)} placeholder="Image Url" />
-  </Form.Group>
-    <Form.Group className="mb-3" controlId="category">
+       <Form.Group className="mb-3" controlId="category">
     <Form.Label>Category</Form.Label>
     <Form.Control type="text" value={category} onChange={(e)=>setcategory(e.target.value)} placeholder="Pizza Category " />
 </Form.Group>
-  <Form.Group className="mb-3" controlId="description">
-    <Form.Label>Description</Form.Label>
-    <Form.Control type="text" value={description} onChange={(e)=>setdescription(e.target.value)} placeholder="Enter description about Pizza" />
+   <Form.Group className="mb-3" controlId="image">
+    <Form.Label>Image</Form.Label>
+    <Form.Control type="text" value={image} onChange={(e)=>setimage(e.target.value)} placeholder="Image Url" />
   </Form.Group>
   <Button varient="primary" type="submit">
     Submit
